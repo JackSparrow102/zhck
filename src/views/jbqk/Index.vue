@@ -6,6 +6,11 @@
             <div class="col-lg-3">
               <div class="form-group">
                 <label for="exampleInputName2">姓名：</label>
+                <el-date-picker
+                  v-model="value1"
+                  type="date"
+                  placeholder="选择日期">
+                </el-date-picker>
                 <input v-model="cadreInformation.user_name" type="text" class="form-control" id="exampleInputName2" placeholder="" :readonly="is_readonly">
               </div>
             </div>
@@ -215,17 +220,18 @@
 <script>
 export default {
   props: {
-    type: { type: Number, default: 0 },
+    type: { type: Number, default: 0 }
   },
   data() {
     return {
-      avatar: require('@/assets/img/8082.jpg'),
+      avatar: require("@/assets/img/8082.jpg"),
       is_readonly: true,
       cadreInformation: {
-        gender: '',
+        gender: ""
       },
       id: -1,
-      genders: [{ text: '1', value: '男' }, { text: '0', value: '女' }],
+      genders: [{ text: "1", value: "男" }, { text: "0", value: "女" }],
+      value1: '',
     };
   },
   created() {
@@ -235,16 +241,16 @@ export default {
   },
   methods: {
     startAdd() {
-      if (this.$route.query.type == 'add') {
+      if (this.$route.query.type == "add") {
         this.is_readonly = false;
-        this.$emit('changeToAdd', 0);
+        this.$emit("changeToAdd", 0);
         return true;
       } else {
         return false;
       }
     },
     startUpdate() {
-      if (this.$route.query.type == 'update') {
+      if (this.$route.query.type == "update") {
         this.is_readonly = false;
         return true;
       } else {
@@ -261,12 +267,12 @@ export default {
     },
     toupdate() {
       this.id = this.$route.query.id;
-      this.$router.push({ name: 'Details', query: { type: 'update' } });
+      this.$router.push({ name: "Details", query: { type: "update" } });
     },
     changeImage(e) {
       var file = e.target.files[0];
       if (file.size > 2 * 1000000) {
-        alert('上传相片过大');
+        alert("上传相片过大");
         return;
       }
       var reader = new FileReader();
@@ -281,34 +287,41 @@ export default {
     },
     async toAdd() {
       console.log(this.cadreInformation);
-      let result = await this.$axios.post('jbqk/jbqk_save', { data: this.cadreInformation });
+      let result = await this.$axios.post("jbqk/jbqk_save", {
+        data: this.cadreInformation
+      });
       this.cadreInformation = {};
-      this.$router.push('/');
+      this.$router.push("/");
     },
     async returnQuery() {
-      this.$router.push({ name: 'Details', query: { id: this.id } });
+      this.$router.push({ name: "Details", query: { id: this.id } });
       let result = await this.$axios.get(`jbqk/jbqk_info?id=${this.id}`);
-      this.$set(this, 'cadreInformation', result.data.data);
+      this.$set(this, "cadreInformation", result.data.data);
       this.id = -1;
     },
     //查看
     async query() {
-      let result = await this.$axios.get(`jbqk/jbqk_info?id=${this.$route.query.id}`);
-      this.$set(this, 'cadreInformation', result.data.data);
+      let result = await this.$axios.get(
+        `jbqk/jbqk_info?id=${this.$route.query.id}`
+      );
+      this.$set(this, "cadreInformation", result.data.data);
     },
     //修改
     async update(index) {
       console.log(this.cadreInformation);
-      let result = await this.$axios.post('jbqk/jbqk_edit', { data: this.cadreInformation });
-      this.$router.push('/');
-    },
-  },
+      let result = await this.$axios.post("jbqk/jbqk_edit", {
+        data: this.cadreInformation
+      });
+      this.$router.push("/");
+    }
+  }
 };
 </script>
 
 <style lang='css' scoped>
-.el-date-editor.el-input, .el-date-editor.el-input__inner {
-    width: 180px;
+.el-date-editor.el-input,
+.el-date-editor.el-input__inner {
+  width: 180px;
 }
 .row {
   display: block !important;

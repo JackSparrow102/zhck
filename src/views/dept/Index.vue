@@ -9,6 +9,14 @@
         <div class="form-inline">
           <div class="base-form-title" style="width:100%;"><a class="base-margin-left-20">部门列表</a>
             <div class="button-table">
+            <el-date-picker
+              v-model="value1"
+              type="date"
+               @change='changea()'
+               format="yyyy 年 MM 月 dd 日"
+              placeholder="选择日期">
+            </el-date-picker>
+            <el-input v-model='aaa' @change='changea()'/>
             </div>
           </div>
         </div>
@@ -107,6 +115,8 @@ export default {
         gender: -1,
         dept_id: 'default',
       },
+      value1: '',
+      aaa:'',
     };
   },
   computed: {},
@@ -164,6 +174,9 @@ export default {
       this.operateId = '';
       this.updateForm = {};
     },
+    changea(){
+      console.log(this.value1)
+    }
   },
 };
 </script>

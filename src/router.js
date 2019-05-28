@@ -8,6 +8,7 @@ import Details from './views/Details.vue';
 import RoleIndex from './views/role/Index.vue';
 import UserRoleIndex from './views/userRole/Index.vue';
 import UpdatePW from './views/user/UpdatePW.vue';
+import edit from './views/edit.vue';
 
 Vue.use(Router);
 
@@ -55,16 +56,22 @@ const router = new Router({
       name: 'UpdatePW',
       component: UpdatePW,
     },
+    {
+      path: '/',
+      name: 'edit',
+      component: edit,
+    },
   ],
 });
-router.beforeEach((to, from, next) => {
-  const is_login = sessionStorage.getItem('userInfo');
-  console.log(is_login);
-  if (is_login) {
-    next();
-  } else {
-    if (to.path.includes('Login')) next();
-    else next('/LoginPage');
-  }
-});
+
+// router.beforeEach((to, from, next) => {
+//   const is_login = sessionStorage.getItem('userInfo');
+//   console.log(is_login);
+//   if (is_login) {
+//     next();
+//   } else {
+//     if (to.path.includes('Login')) next();
+//     else next('/LoginPage');
+//   }
+// });
 export default router;
