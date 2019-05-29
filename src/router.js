@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Index from './views/Index.vue';
-import LoginPage from './views/LoginPage.vue';
+import Index2 from './views/Index2.vue';
+import Index3 from './views/Index3.vue';
 
 Vue.use(Router);
 
@@ -14,9 +15,14 @@ const router = new Router({
             component: Index,
         },
         {
-            path: '/LoginPage',
-            name: 'LoginPage',
-            component: LoginPage,
+            path: '/Index2',
+            name: 'Index2',
+            component: Index2,
+        },
+        {
+            path: '/Index3',
+            name: 'Index3',
+            component: Index3,
         },
     ],
 });
