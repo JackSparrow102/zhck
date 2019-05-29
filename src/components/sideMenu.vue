@@ -12,15 +12,6 @@
               <router-link :to="{name:'Index'}"><li><span>干部信息</span></li></router-link>
 
             </ul>
-            <!-- <li>
-              <span><i class="fa-stack fa fa-area-chart"></i>预警与统计分析</span>
-            </li>
-            <ul class="submenu">
-              <div class="expand-triangle"></div>
-              <router-link :to="{name:'Details'}"><li><span>监测预警</span></li></router-link>
-              <li><span>统计分析</span></li>
-
-            </ul> -->
             <li>
               <span><i class="fa-stack fa fa-cogs"></i>系统管理</span>
             </li>
@@ -30,12 +21,10 @@
               <router-link :to="{name:'UserIndex'}"><li><span> 用户管理</span></li></router-link>
               <router-link :to="{name:'RoleIndex'}"><li><span> 角色管理</span></li></router-link>
               <router-link :to="{name:'UserRoleIndex'}"><li><span> 权限分配</span></li></router-link>
-              <router-link :to="{name:'edit'}"><li><span> 222</span></li></router-link>
             </ul>
 
           </ul>
         </div>
-        <div class="base-footer"> 干部廉政档案系统 <br /> Co pyright © 2019-2020 <br /> 当前版本：1.0 </div>
       </div>
   </div>
 </template>

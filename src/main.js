@@ -7,6 +7,8 @@ import Qs from 'qs';
 import '@/plugins/meta';
 import '@/plugins/element';
 import '@/plugins/filters';
+import MuseUI from 'muse-ui';
+import 'muse-ui/dist/muse-ui.css';
 import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
@@ -15,11 +17,12 @@ axios.defaults.baseURL = 'http://139.210.167.203:8080'; //http://10.16.11.186:80
 axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
 Vue.prototype.$axios = axios;
 Vue.prototype.qs = Qs;
+Vue.use(MuseUI);
 Vue.use(BootstrapVue);
 Vue.config.productionTip = false;
 
 new Vue({
-  router,
-  store,
-  render: h => h(App),
+    router,
+    store,
+    render: h => h(App),
 }).$mount('#app');

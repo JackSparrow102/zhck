@@ -7,7 +7,23 @@
       <div class="base-wrapper" v-show="!isLogin()">
         <Header></Header>
         <div class="base-main" id="base-main">
-          <sideMenu style="float:left;"></sideMenu>
+    <mu-button color="primary" style="margin-left: 16px" @click="open = !open">
+      ===
+    </mu-button>
+    <mu-drawer :open.sync="open" :docked="docked" :right="position === 'right'">
+      <mu-list>
+        <!-- <sideMenu style="float:left;"></sideMenu> -->
+        <mu-list-item button>
+          <mu-list-item-title>Menu Item 1</mu-list-item-title>
+        </mu-list-item>
+        <mu-list-item button>
+          <mu-list-item-title>Menu Item 2</mu-list-item-title>
+        </mu-list-item>
+        <mu-list-item  @click="open = false" button>
+          <mu-list-item-title>Close</mu-list-item-title>
+        </mu-list-item>
+      </mu-list>
+    </mu-drawer>
           <div id="base-main-right" class="base-main-right">
             <router-view/>
           </div>
@@ -21,6 +37,13 @@
 import Header from '@/components/Header.vue';
 import sideMenu from '@/components/sideMenu.vue';
 export default {
+  data() {
+    return {
+      docked: false,
+      open: false,
+      position: 'left'
+    };
+  },
   components: {
     Header,
     sideMenu,

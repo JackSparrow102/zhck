@@ -1,6 +1,6 @@
 <template lang='html'>
   <div id="Header">
-      <div class="base-header">
+      <!-- <div class="base-header">
         <div class="base-header-left" id="menuHead">
           <img src="../assets/img/logo.png" alt="..." class="img-rounded">
         </div>
@@ -16,7 +16,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
   </div>
 </template>
 
