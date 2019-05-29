@@ -7,26 +7,46 @@
     </b-breadcrumb>
     <!-- 栅格 begin -->
     <div class="base-form">
-      <div class="base-form-title"><a class="base-margin-left-20">查询条件</a></div>
+      <div class="base-form-title">
+        <a class="base-margin-left-20">查询条件</a>
+      </div>
       <div class="base-padding-20 base-bg-fff">
         <div class="row" style="margin-top:15px;">
           <div class="col-lg-3">
             <div class="base-margin-right-40 form-group">
-
-              <input type="text" v-model="dagl_user.user_name" class="form-control" id="exampleInputName2" placeholder="请输入姓名">
+              <input
+                type="text"
+                v-model="dagl_user.user_name"
+                class="form-control"
+                id="exampleInputName2"
+                placeholder="请输入姓名"
+              >
             </div>
           </div>
 
           <div class="col-lg-3">
             <div class="base-margin-right-40 form-group">
-
-              <input type="text" v-model="dagl_user.id_number" class="form-control" id="exampleInputName2" placeholder="请输入身份证号">
+              <input
+                type="text"
+                v-model="dagl_user.id_number"
+                class="form-control"
+                id="exampleInputName2"
+                placeholder="请输入身份证号"
+              >
             </div>
           </div>
           <div class="col-lg-3">
             <div class="base-margin-right-40 form-group">
-
-              <a class="btn btn-info" style="font-size:14px !important;padding: 6px 12px !important;"  @click="query()" data-toggle="tooltip" title="" role="button"><i class="base-margin-right-5 fa fa-search "></i>查&nbsp;&nbsp;&nbsp;询</a>
+              <a
+                class="btn btn-info"
+                style="font-size:14px !important;padding: 6px 12px !important;"
+                @click="query()"
+                data-toggle="tooltip"
+                title
+                role="button"
+              >
+                <i class="base-margin-right-5 fa fa-search"></i>查&nbsp;&nbsp;&nbsp;询
+              </a>
             </div>
           </div>
         </div>
@@ -36,18 +56,26 @@
     <!-- 表格 begin -->
     <div class="base-form">
       <div class="form-inline">
-        <div class="base-form-title" style="width:100%;"><a class="base-margin-left-20">干部信息列表</a>
-          <div class="button-table">
-          </div>
+        <div class="base-form-title" style="width:100%;">
+          <a class="base-margin-left-20">干部信息列表</a>
+          <div class="button-table"></div>
         </div>
       </div>
       <div class="base-padding-20 base-bg-fff">
         <div class="base-align-right" style="margin-bottom:20px;">
-          <a class="btn btn-info base-margin-bottom" style="font-size:14px !important;padding: 6px 12px !important;"  @click="$router.push({ name: 'Details', query: { type: 'add' } })"
-             data-toggle="tooltip" title="" role="button"><i class="base-margin-right-5 fa fa-plus-square"></i>添加人员</a>
+          <a
+            class="btn btn-info base-margin-bottom"
+            style="font-size:14px !important;padding: 6px 12px !important;"
+            @click="$router.push({ name: 'Details', query: { type: 'add' } })"
+            data-toggle="tooltip"
+            title
+            role="button"
+          >
+            <i class="base-margin-right-5 fa fa-plus-square"></i>添加人员
+          </a>
           <!--  <button type="submit" class="btn btn-info base-margin-bottom"><a href="#" data-toggle="tooltip" title="导出">导&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;出</a></button> -->
         </div>
-        <table class="table table-bordered table-striped ">
+        <table class="table table-bordered table-striped">
           <tbody>
             <tr>
               <th>编号</th>
@@ -64,27 +92,51 @@
               <td>{{item.id_number}}</td>
               <td>{{item.phone_no}}</td>
               <td>
-                <a class="btn btn-xs btn-info base-margin-2" @click="openDeleteAlert(item.id)" data-toggle="tooltip"
-                   title="" role="button" style="background-color: #dc3545 !important; border:none !important; ">删&nbsp;&nbsp;除</a>
-                <a class="btn btn-xs btn-info base-margin-2" @click="$router.push({ name: 'Details', query: { id: item.id } })"
-                   data-toggle="tooltip" title=""  style=" border:none !important; " role="button">查&nbsp;&nbsp;看</a>
+                <a
+                  class="btn btn-xs btn-info base-margin-2"
+                  @click="openDeleteAlert(item.id)"
+                  data-toggle="tooltip"
+                  title
+                  role="button"
+                  style="background-color: #dc3545 !important; border:none !important; "
+                >删&nbsp;&nbsp;除</a>
+                <a
+                  class="btn btn-xs btn-info base-margin-2"
+                  @click="$router.push({ name: 'Details', query: { id: item.id } })"
+                  data-toggle="tooltip"
+                  title
+                  style=" border:none !important; "
+                  role="button"
+                >查&nbsp;&nbsp;看</a>
               </td>
             </tr>
-
           </tbody>
         </table>
 
         <!-- 分页 -->
         <div class="page-bar">
           <ul class="pagination pagination-sm">
-            <li v-if="cur>1"><a v-on:click="cur--,query(cur)">上一页</a></li>
-            <li v-if="cur==1"><a class="banclick">上一页</a></li>
+            <li v-if="cur>1">
+              <a v-on:click="cur--,query(cur)">上一页</a>
+            </li>
+            <li v-if="cur==1">
+              <a class="banclick">上一页</a>
+            </li>
             <li v-for="index in indexs" :key="index" v-bind:class="{ 'active': cur == index}">
               <a v-on:click="btnClick(index),query(cur)">{{ index }}</a>
             </li>
-            <li v-if="cur!=pageNumber"><a v-on:click="cur++,query(cur)">下一页</a></li>
-            <li v-if="cur == pageNumber"><a class="banclick">下一页</a></li>
-            <li><a>共<i>{{pageNumber}}</i>页</a></li>
+            <li v-if="cur!=pageNumber">
+              <a v-on:click="cur++,query(cur)">下一页</a>
+            </li>
+            <li v-if="cur == pageNumber">
+              <a class="banclick">下一页</a>
+            </li>
+            <li>
+              <a>
+                共
+                <i>{{pageNumber}}</i>页
+              </a>
+            </li>
           </ul>
         </div>
         <!-- 分页 -->
@@ -94,9 +146,16 @@
       <div class="d-block text-center">
         <b-alert variant="danger" show>删除之后可能会有严重影响,确认删除吗?</b-alert>
       </div>
-      <b-button variant="danger" style="float:right;font-size:16px !important; color:white; margin-top:35px; padding:6px 80px !important;margin-bottom:30px !important; rgb(220, 53, 69) !important; margin-right:0 !important;" 
-      @click="deleted(deleteItem)">删除</b-button>
-      <b-button variant="primary" style="color:white;font-size:16px !important; margin-top:35px;  padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;" @click="$refs.deleteAlert.hide(),deleteItem=''">返回</b-button>
+      <b-button
+        variant="danger"
+        style="float:right;font-size:16px !important; color:white; margin-top:35px; padding:6px 80px !important;margin-bottom:30px !important; rgb(220, 53, 69) !important; margin-right:0 !important;"
+        @click="deleted(deleteItem)"
+      >删除</b-button>
+      <b-button
+        variant="primary"
+        style="color:white;font-size:16px !important; margin-top:35px;  padding:6px 80px !important;margin-bottom:30px !important;margin-right:0 !important;"
+        @click="$refs.deleteAlert.hide(),deleteItem=''"
+      >返回</b-button>
     </b-modal>
   </div>
 </template>
@@ -104,12 +163,12 @@
 export default {
   data() {
     return {
-      id: 'gf',
-      deleteItem: '',
+      id: "gf",
+      deleteItem: "",
       cadreInformation: [],
       dagl_user: {
-        user_name: '',
-        id_number: '',
+        user_name: "",
+        id_number: ""
       },
       skip: 0,
       limit: 5, //每页信息数量
@@ -117,7 +176,7 @@ export default {
       closetimer: 0,
       totalRow: 0, //词条数量
       pageNumber: 1, //页码数量
-      cur: 1, //当前页码
+      cur: 1 //当前页码
     };
   },
   created() {
@@ -129,52 +188,60 @@ export default {
       this.deleteItem = id;
     },
     async deleted(id) {
-      let result = await this.$axios.get(`jbqk/jbqk_delete?id=${this.deleteItem}`);
+      let result = await this.$axios.get(
+        `jbqk/jbqk_delete?id=${this.deleteItem}`
+      );
       this.$refs.deleteAlert.hide();
-      this.deleteItem = '';
+      this.deleteItem = "";
       this.query();
     },
     async query(i) {
       if (i == null) {
         if (this.dagl_user.lengh == 0) {
-          let result = await this.$axios.get(`jbqk/jbqk_list?skip=${this.skip}&limit=${this.limit}`);
-          this.totalRow = result.data.totalRow;
-          this.pageNumber = Math.ceil(this.totalRow / this.limit);
-          this.$set(this, 'cadreInformation', result.data.jbqkList);
-        } else {
           let result = await this.$axios.get(
-            `jbqk/jbqk_list?skip=${this.skip}&limit=${this.limit}&user_name=${this.dagl_user.user_name}&id_number=${this.dagl_user.id_number}`
+            `jbqk/jbqk_list?skip=${this.skip}&limit=${this.limit}`
           );
           this.totalRow = result.data.totalRow;
           this.pageNumber = Math.ceil(this.totalRow / this.limit);
-          this.$set(this, 'cadreInformation', result.data.jbqkList);
+          this.$set(this, "cadreInformation", result.data.jbqkList);
+        } else {
+          let result = await this.$axios.get(
+            `jbqk/jbqk_list?skip=${this.skip}&limit=${this.limit}&user_name=${
+              this.dagl_user.user_name
+            }&id_number=${this.dagl_user.id_number}`
+          );
+          this.totalRow = result.data.totalRow;
+          this.pageNumber = Math.ceil(this.totalRow / this.limit);
+          this.$set(this, "cadreInformation", result.data.jbqkList);
         }
       } else if (i != null) {
         let result = await this.$axios.get(
-          `jbqk/jbqk_list?skip=${this.skip + this.limit * (i - 1)}&limit=${this.limit}&user_name=${this.dagl_user.user_name}
+          `jbqk/jbqk_list?skip=${this.skip + this.limit * (i - 1)}&limit=${
+            this.limit
+          }&user_name=${this.dagl_user.user_name}
 &id_number=${this.dagl_user.id_number}`
         );
         this.totalRow = result.data.totalRow;
         this.pageNumber = Math.ceil(this.totalRow / this.limit);
-        this.$set(this, 'cadreInformation', result.data.jbqkList);
+        this.$set(this, "cadreInformation", result.data.jbqkList);
       }
     },
     showmenu(id) {
-      var list = document.getElementById('list' + id);
-      var menu = document.getElementById('menu' + id);
-      if (list.style.display == 'none') {
-        document.getElementById('list' + id).style.display = 'block';
-        menu.className = 'first-menuname-open';
+      var list = document.getElementById("list" + id);
+      var menu = document.getElementById("menu" + id);
+      if (list.style.display == "none") {
+        document.getElementById("list" + id).style.display = "block";
+        menu.className = "first-menuname-open";
       } else {
-        document.getElementById('list' + id).style.display = 'none';
-        menu.className = 'first-menuname';
+        document.getElementById("list" + id).style.display = "none";
+        menu.className = "first-menuname";
       }
     },
     btnClick: function(data) {
       if (data != this.cur) {
         this.cur = data;
       }
-    },
+    }
   },
   computed: {
     indexs: function() {
@@ -200,8 +267,8 @@ export default {
         left++;
       }
       return ar;
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -270,7 +337,8 @@ export default {
   border-radius: 4px;
   -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
   box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
-  -webkit-transition: border-color ease-in-out 0.15s, -webkit-box-shadow ease-in-out 0.15s;
+  -webkit-transition: border-color ease-in-out 0.15s,
+    -webkit-box-shadow ease-in-out 0.15s;
   -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
   transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 }
@@ -496,7 +564,7 @@ li {
 
 
 <style scoped>
-@import '../assets/style/Font-Awesome-master/css/font-awesome.css';
-@import '../assets/style/layout/base-Layout-bootstrap.css';
-@import '../assets/style/base-style-bootstrap.css';
+@import "../assets/style/Font-Awesome-master/css/font-awesome.css";
+@import "../assets/style/layout/base-Layout-bootstrap.css";
+@import "../assets/style/base-style-bootstrap.css";
 </style>

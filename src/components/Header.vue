@@ -21,45 +21,45 @@
 </template>
 
 <script>
-import { mapMutations, mapState } from 'vuex';
+// import { mapMutations, mapState } from 'vuex';
 export default {
   name: 'Header',
   components: {},
   data() {
     return {
-      avatar: require('@/assets/img/8082.jpg'),
+      // avatar: require('@/assets/img/8082.jpg'),
     };
   },
   computed: {
-    ...mapState({
-      userName: state => state.userName,
-    }),
+    // ...mapState({
+    //   userName: state => state.userName,
+    // }),
   },
   mounted() {
-    $('#base-nav').width($(window).width() - 241);
-    $(window).resize(function() {
-      $('#base-nav').width($(window).width() - 241);
-    });
+    // $('#base-nav').width($(window).width() - 241);
+    // $(window).resize(function() {
+    //   $('#base-nav').width($(window).width() - 241);
+    // });
   },
   created() {
-    this.isLogin();
+    // this.isLogin();
   },
   methods: {
-    ...mapMutations(['isLogout', 'isLogin']),
-    mopen(id) {
-      // this.mcancelclosetime();
-      if (this.ddmenuitem) this.ddmenuitem.style.visibility = 'hidden';
-      this.ddmenuitem = document.getElementById(id);
-      this.ddmenuitem.style.visibility = 'visible';
-    },
-    mclose() {
-      if (this.ddmenuitem) this.ddmenuitem.style.visibility = 'hidden';
-    },
-    logout() {
-      // sessionStorage.removeItem('userInfo');
-      this.isLogout();
-      this.$router.push({ path: '/LoginPage' });
-    },
+    // ...mapMutations(['isLogout', 'isLogin']),
+    // mopen(id) {
+    //   // this.mcancelclosetime();
+    //   if (this.ddmenuitem) this.ddmenuitem.style.visibility = 'hidden';
+    //   this.ddmenuitem = document.getElementById(id);
+    //   this.ddmenuitem.style.visibility = 'visible';
+    // },
+    // mclose() {
+    //   if (this.ddmenuitem) this.ddmenuitem.style.visibility = 'hidden';
+    // },
+    // logout() {
+    //   // sessionStorage.removeItem('userInfo');
+    //   this.isLogout();
+    //   this.$router.push({ path: '/LoginPage' });
+    // },
   },
 };
 </script>

@@ -1,41 +1,52 @@
 <template>
   <div id="app">
     <body>
-      <div v-show="isLogin()">
+      <!-- <div v-show="isLogin()">
         <router-view/>
-      </div>
+      </div> -->
       <div class="base-wrapper" v-show="!isLogin()">
         <Header></Header>
-        <div class="base-main" id="base-main">
-    <mu-button color="primary" style="margin-left: 16px" @click="open = !open">
-      ===
-    </mu-button>
-    <mu-drawer :open.sync="open" :docked="docked" :right="position === 'right'">
-      <mu-list>
-        <!-- <sideMenu style="float:left;"></sideMenu> -->
-        <mu-list-item button>
-          <mu-list-item-title>Menu Item 1</mu-list-item-title>
-        </mu-list-item>
-        <mu-list-item button>
-          <mu-list-item-title>Menu Item 2</mu-list-item-title>
-        </mu-list-item>
-        <mu-list-item  @click="open = false" button>
-          <mu-list-item-title>Close</mu-list-item-title>
-        </mu-list-item>
-      </mu-list>
-    </mu-drawer>
-          <div id="base-main-right" class="base-main-right">
-            <router-view/>
-          </div>
+        <mu-button color="primary" style="margin-left: 16px" @click="open = !open">
+          ===
+        </mu-button>
+        <mu-drawer :open.sync="open" :docked="docked" :right="position === 'right'">
+          <mu-list>
+            <!-- <sideMenu style="float:left;"></sideMenu> -->
+            <mu-list-item button>
+              <mu-list-item-title>
+                aaa
+              </mu-list-item-title>
+            </mu-list-item>
+            <mu-list-item button>
+              <mu-list-item-title>
+                bbb
+              </mu-list-item-title>
+            </mu-list-item>
+            <mu-list-item button>
+              <mu-list-item-title>
+                ccc
+              </mu-list-item-title>
+            </mu-list-item>
+            <mu-list-item button>
+              <mu-list-item-title>
+                ddd
+              </mu-list-item-title>
+            </mu-list-item>
+            <mu-list-item  @click="open = false" button>
+              <mu-list-item-title>Close</mu-list-item-title>
+            </mu-list-item>
+          </mu-list>
+        </mu-drawer>
+        <!-- 路由、展示的主界面 -->
+        <router-view/>
         </div>
-      </div>
     </body>
   </div>
 </template>
 
 <script>
 import Header from '@/components/Header.vue';
-import sideMenu from '@/components/sideMenu.vue';
+// import sideMenu from '@/components/sideMenu.vue';
 export default {
   data() {
     return {
@@ -46,17 +57,9 @@ export default {
   },
   components: {
     Header,
-    sideMenu,
+    // sideMenu,
   },
   mounted() {
-    $('#base-main').height($(window).height() - 60);
-    $(window).resize(function() {
-      $('#base-main').height($(window).height() - 60);
-    });
-    $('#base-main-right').width($(window).width() - 241);
-    $(window).resize(function() {
-      $('#base-main-right').width($(window).width() - 241);
-    });
   },
   methods: {
     isLogin() {
