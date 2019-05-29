@@ -17,6 +17,80 @@
           </div>
         </div>
       </div> -->
+      
+    <mu-appbar style="width: 100%;" color="primary">
+      <mu-button icon slot="left" @click="open = !open">
+        <span class="iconfont">&#xe615;</span>
+      </mu-button>
+        仓库管理
+
+      <mu-button flat slot="right">
+        <mu-icon value="~"></mu-icon>
+      </mu-button>
+    </mu-appbar>
+
+    <mu-drawer :open.sync="open" :docked="docked" :right="position === 'right'">
+      <mu-list>
+        <!-- <router-link :to="{'name':'login'}" v-if="!userinfo">
+          <mu-list-item button :ripple="false">
+            <mu-list-item-action title="登陆">
+              <mu-icon value=""></mu-icon>
+              
+            </mu-list-item-action>
+            <mu-list-item-title>登陆</mu-list-item-title>
+          </mu-list-item>
+        </router-link> -->
+        <router-link :to="{'name':'person'}" v-if="userinfo">
+          <mu-list-item button :ripple="false">
+            <mu-list-item-action title="个人中心">
+              <mu-avatar>
+                <img  v-bind:src="userinfo.PicUrl">
+              </mu-avatar>
+            </mu-list-item-action>
+            <mu-list-item-title>{{userinfo.UsereName}}</mu-list-item-title>
+
+          </mu-list-item>
+        </router-link>
+        <mu-divider />
+          <router-link :to="{'name':'goodsedit'}">
+          <mu-list-item button :ripple="false">
+            <mu-list-item-action title="店铺管理">
+              <!-- <mu-icon value=""></mu-icon> -->
+              <span class="iconfont">&#xe63e;</span>
+            </mu-list-item-action>
+            <mu-list-item-title>
+              店铺管理</mu-list-item-title>
+          </mu-list-item>
+        </router-link>
+        <router-link :to="{'name':'login'}">
+          <mu-list-item button :ripple="false">
+            <mu-list-item-action title="查看日志">
+              <!-- <mu-icon value=""></mu-icon> -->
+              <span class="iconfont">&#xe60c;</span>
+            </mu-list-item-action>
+            <mu-list-item-title>查看日志</mu-list-item-title>
+          </mu-list-item>
+        </router-link>
+        <router-link :to="{'name':'login'}">
+          <mu-list-item button :ripple="false">
+            <mu-list-item-action title="日志复原">
+              <!-- <mu-icon value=""></mu-icon> -->
+              <span class="iconfont">&#xe718;</span>
+            </mu-list-item-action>
+            <mu-list-item-title>日志复原</mu-list-item-title>
+          </mu-list-item>
+        </router-link>
+        <router-link :to="{'name':'login'}">
+          <mu-list-item button :ripple="false">
+            <mu-list-item-action title="修改密码">
+              <!-- <mu-icon value=""></mu-icon> -->
+              <span class="iconfont">&#xe626;</span>
+            </mu-list-item-action>
+            <mu-list-item-title>修改密码</mu-list-item-title>
+          </mu-list-item>
+        </router-link>
+      </mu-list>
+    </mu-drawer>
   </div>
 </template>
 
@@ -28,6 +102,10 @@ export default {
   data() {
     return {
       // avatar: require('@/assets/img/8082.jpg'),
+       docked: false,
+        open: false,
+        position: 'left',
+        userinfo: {}
     };
   },
   computed: {
@@ -65,7 +143,7 @@ export default {
 </script>
 
 <style lang='css' scoped>
-.base-nav ul.top-nav-ul li a {
+/* .base-nav ul.top-nav-ul li a {
     color: #4f5151 !important;
 }
 .base-nav ul.top-nav-ul li a:hover {
@@ -82,5 +160,5 @@ export default {
 }
 #base-user div a:hover {
     color: #fff !important;
-}
+} */
 </style>

@@ -6,15 +6,15 @@
       </div> -->
       <div class="base-wrapper" v-show="!isLogin()">
         <Header></Header>
-        <mu-button color="primary" style="margin-left: 16px" @click="open = !open">
+        <!-- <mu-button color="primary" style="margin-left: 16px" @click="open = !open">
           ===
         </mu-button>
         <mu-drawer :open.sync="open" :docked="docked" :right="position === 'right'">
           <mu-list>
-            <!-- <sideMenu style="float:left;"></sideMenu> -->
+            <sideMenu style="float:left;"></sideMenu>
             <mu-list-item button>
               <mu-list-item-title>
-                aaa
+                <router-link :to="{name:'ckgl'}">Go to aaa</router-link>
               </mu-list-item-title>
             </mu-list-item>
             <mu-list-item button>
@@ -36,7 +36,7 @@
               <mu-list-item-title>Close</mu-list-item-title>
             </mu-list-item>
           </mu-list>
-        </mu-drawer>
+        </mu-drawer> -->
         <!-- 路由、展示的主界面 -->
         <router-view/>
         </div>
@@ -50,9 +50,9 @@ import Header from '@/components/Header.vue';
 export default {
   data() {
     return {
-      docked: false,
-      open: false,
-      position: 'left'
+      // docked: false,
+      // open: false,
+      // position: 'left'
     };
   },
   components: {

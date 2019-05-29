@@ -12,6 +12,7 @@ import 'muse-ui/dist/muse-ui.css';
 import BootstrapVue from 'bootstrap-vue';
 import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
+import './assets/icon/iconfont.css'
 
 axios.defaults.baseURL = 'http://139.210.167.203:8080'; //http://10.16.11.186:8080合并项目用本地
 axios.defaults.headers.post['Content-Type'] = 'multipart/form-data';
