@@ -3,6 +3,8 @@ import Router from 'vue-router';
 import Index from './views/Index.vue';
 import Index2 from './views/Index2.vue';
 import Index3 from './views/Index3.vue';
+import Index4 from './views/Index4.vue';
+import Index5 from './views/Index5.vue';
 
 Vue.use(Router);
 
@@ -23,6 +25,16 @@ const router = new Router({
             path: '/Index3',
             name: 'Index3',
             component: Index3,
+        },
+        {
+            path: '/Index4',
+            name: 'Index4',
+            component: Index4,
+        },
+        {
+            path: '/Index5',
+            name: 'Index5',
+            component: Index5,
         },
     ],
 });

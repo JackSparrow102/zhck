@@ -8,27 +8,27 @@
         <div class="base-wrapper">
         <Header></Header>
         <mu-button color="primary" style="margin-left: 16px" @click="open = !open">
-          ===
+          <mu-icon value="menu"></mu-icon>
         </mu-button>
         <mu-drawer :open.sync="open" :docked="docked" :right="position === 'right'">
           <mu-list>
             <!-- <sideMenu style="float:left;"></sideMenu> -->
-            <mu-list-item button @click="createnewproject('Index2')">
+            <mu-list-item button to="/Index2">
               <mu-list-item-title>
                 aaa
               </mu-list-item-title>
             </mu-list-item>
-            <mu-list-item button @click="createnewproject('Index3')">
+            <mu-list-item button to="/Index3">
               <mu-list-item-title>
                 bbb
               </mu-list-item-title>
             </mu-list-item>
-            <mu-list-item button>
+            <mu-list-item button to="/Index4">
               <mu-list-item-title>
                 ccc
               </mu-list-item-title>
             </mu-list-item>
-            <mu-list-item button>
+            <mu-list-item button to="/Index5">
               <mu-list-item-title>
                 ddd
               </mu-list-item-title>
@@ -63,9 +63,6 @@ export default {
   mounted() {
   },
   methods: {
-    createnewproject(router_name){
-      this.$router.push(router_name);
-    },
     isLogin() {
       let routerPath = this.$route.name;
       if (routerPath.includes('Login')) {
