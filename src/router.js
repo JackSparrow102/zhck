@@ -1,9 +1,16 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Index from './views/Index.vue';
+<<<<<<< HEAD
 import LoginPage from './views/LoginPage.vue';
 import ckgl from './views/ckgl.vue';
 import goodsedit from './views/goodsedit.vue';
+=======
+import Index2 from './views/Index2.vue';
+import Index3 from './views/Index3.vue';
+import Index4 from './views/Index4.vue';
+import Index5 from './views/Index5.vue';
+>>>>>>> 93f7c0681e5b0bb47a3e2bf79cabc1d1bb596ab5
 
 Vue.use(Router);
 
@@ -16,9 +23,24 @@ const router = new Router({
             component: Index,
         },
         {
-            path: '/LoginPage',
-            name: 'LoginPage',
-            component: LoginPage,
+            path: '/Index2',
+            name: 'Index2',
+            component: Index2,
+        },
+        {
+            path: '/Index3',
+            name: 'Index3',
+            component: Index3,
+        },
+        {
+            path: '/Index4',
+            name: 'Index4',
+            component: Index4,
+        },
+        {
+            path: '/Index5',
+            name: 'Index5',
+            component: Index5,
         },
         {
             path: '/ckgl',
