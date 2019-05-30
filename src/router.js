@@ -1,12 +1,13 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Index from './views/Index.vue';
-import ckgl from './views/ckgl.vue';
+import loginOptions from './views/loginOptions.vue';
+import landing from './views/landing.vue';
 import storeManagement from './views/storeManagement.vue';
-import Index2 from './views/Index2.vue';
-import Index3 from './views/Index3.vue';
-import Index4 from './views/Index4.vue';
-import Index5 from './views/Index5.vue';
+import commodityManagement1 from './views/commodityManagement1.vue';
+import commodityManagement2 from './views/commodityManagement2.vue';
+import viewLog from './views/viewLog.vue';
+import recoveryLog from './views/recoveryLog.vue';
+import changePassword from './views/changePassword.vue';
 
 Vue.use(Router);
 
@@ -15,39 +16,49 @@ const router = new Router({
     // mode: 'history',
     routes: [{
             path: '/',
-            name: 'Index',
-            component: Index,
+            name: 'loginOptions',
+            component: loginOptions,
         },
         {
-            path: '/Index2',
-            name: 'Index2',
-            component: Index2,
+            path: '/changePassword',
+            name: 'changePassword',
+            component: changePassword,
         },
         {
-            path: '/Index3',
-            name: 'Index3',
-            component: Index3,
+            path: '/loginOptions',
+            name: 'loginOptions',
+            component: loginOptions,
         },
         {
-            path: '/Index4',
-            name: 'Index4',
-            component: Index4,
-        },
-        {
-            path: '/Index5',
-            name: 'Index5',
-            component: Index5,
-        },
-        {
-            path: '/ckgl',
-            name: 'ckgl',
-            component: ckgl,
+            path: '/landing',
+            name: 'landing',
+            component: landing,
         },
         {
             path: '/storeManagement',
             name: 'storeManagement',
             component: storeManagement,
         },
+        {
+            path: '/commodityManagement1',
+            name: 'commodityManagement1',
+            component: commodityManagement1,
+        },
+        {
+            path: '/commodityManagement2',
+            name: 'commodityManagement2',
+            component: commodityManagement2,
+        },
+        {
+            path: '/viewLog',
+            name: 'viewLog',
+            component: viewLog,
+        },,
+        {
+            path: '/recoveryLog',
+            name: 'recoveryLog',
+            component: recoveryLog,
+        }
     ],
 });
 

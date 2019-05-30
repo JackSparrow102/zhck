@@ -5,15 +5,15 @@
         <router-view/>
       </div> -->
       <!-- <div class="base-wrapper" v-show="!isLogin()"> -->
-        <div class="base-wrapper">
+      <div class="base-wrapper">
         <!-- <Header></Header> -->
         <mu-appbar style="width: 100%;" color="primary">
           <mu-button icon slot="left" @click="open = !open">
             <span class="iconfont">&#xe615;</span>
           </mu-button>
             仓库管理
-          <mu-button flat slot="right">
-            <mu-icon value="~"></mu-icon>
+          <mu-button flat slot="right" to="loginOptions">登陆
+            <mu-icon value=""></mu-icon>
           </mu-button>
         </mu-appbar>
         
@@ -21,14 +21,14 @@
           <mu-list>
             <!-- <sideMenu style="float:left;"></sideMenu> -->
 
-            <router-link :to="{'name':'person'}" v-if="userinfo">
+            <router-link :to="{'name':'loginOptions'}" >
               <mu-list-item button :ripple="false">
                 <mu-list-item-action title="个人中心">
                   <mu-avatar>
-                    <img  v-bind:src="userinfo.PicUrl">
+                    <img   src=" ">
                   </mu-avatar>
                 </mu-list-item-action>
-                <mu-list-item-title>{{userinfo.UsereName}}</mu-list-item-title>
+                <mu-list-item-title> </mu-list-item-title>
 
               </mu-list-item>
             </router-link>
@@ -42,7 +42,7 @@
               <mu-list-item-title>店铺管理</mu-list-item-title>
             </mu-list-item>
           </router-link>
-          <mu-list-item button  to="/Index2">
+          <mu-list-item button  to="/viewLog">
             <mu-list-item-action title="查看日志">
               <!-- <mu-icon value=""></mu-icon> -->
               <span class="iconfont">&#xe60c;</span>
@@ -50,7 +50,7 @@
             <mu-list-item-title>查看日志</mu-list-item-title>
           </mu-list-item>
 
-           <mu-list-item button to="/Index3">
+           <mu-list-item button to="/recoveryLog">
             <mu-list-item-action title="日志复原">
               <!-- <mu-icon value=""></mu-icon> -->
               <span class="iconfont">&#xe718;</span>
@@ -58,28 +58,26 @@
             <mu-list-item-title>日志复原</mu-list-item-title>
           </mu-list-item>
 
-          <mu-list-item button  to="/Index4">
+          <mu-list-item button  to="/changePassword">
             <mu-list-item-action title="修改密码">
               <!-- <mu-icon value=""></mu-icon> -->
               <span class="iconfont">&#xe626;</span>
             </mu-list-item-action>
             <mu-list-item-title>修改密码</mu-list-item-title>
           </mu-list-item>
-            
-            
-            <mu-list-item button to="/Index5">
+            <!-- <mu-list-item button to="/Index5">
               <mu-list-item-title>
                 ddd
               </mu-list-item-title>
-            </mu-list-item>
-            <mu-list-item  @click="open = false" button>
+            </mu-list-item> -->
+            <!-- <mu-list-item  @click="open = false" button>
               <mu-list-item-title>Close</mu-list-item-title>
-            </mu-list-item>
+            </mu-list-item> -->
           </mu-list>
         </mu-drawer> 
         <!-- 路由、展示的主界面 -->
         <router-view/>
-        </div>
+      </div>
     </body>
   </div>
 </template>

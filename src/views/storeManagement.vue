@@ -1,18 +1,19 @@
 <template lang='html'>
     <div id="index">
-        <mu-card-title title="店铺管理" sub-title="商品管理"></mu-card-title>
-        <mu-container>
-            <mu-paper :z-depth="1">
-                <mu-data-table stripe :columns="columns" :sort.sync="sort" @sort-change="handleSortChange" :data="list.slice(0, 3)">
-                
-                    <td>{{scope.row.name}}</td>
-                    <td class="is-right">{{scope.row.calories}}</td>
-                    <td class="is-right">{{scope.row.fat}}</td>
-                    <td class="is-right">{{scope.row.carbs}}</td>
-                    <td><mu-button color="primary">Primary</mu-button></td>
-                </mu-data-table>
-            </mu-paper>
-        </mu-container>
+      <mu-card-title title="商品管理"></mu-card-title>
+        <el-table :data="tableData" border style="width: 96%">
+          <el-table-column  prop="num" label="店铺编号" width="150">
+          </el-table-column>
+          <el-table-column prop="name"  label="店铺名称" width="120">
+          </el-table-column>
+          <el-table-column  fixed="right" label="操作" width="100">
+            <template slot-scope="scope">
+              <el-button @click="handleClick(scope.row)" type="text" size="small" >
+                <router-link to='/commodityManagement1'> 查询店中商品</router-link>
+              </el-button>
+            </template>
+          </el-table-column>
+        </el-table>
     
     
     </div> 
@@ -25,43 +26,33 @@ export default {
   components: {},
   data() {
     return {
-     sort: {
-        name: '',
-        order: 'asc'
-      },
-      columns: [
-          { title: '店铺编号', width: 200, name: 'name' },
-          { title: '店铺名称', name: 'calories', width: 126, align: 'center', sortable: true },
-          { title: '店铺商品', name: 'fat', width: 126, align: 'center', sortable: true }
-      ],
-      list: [
+    tableData: [{
+          num: '2016-05-03',
+          name: '李小虎'
+        }, 
         {
-            name: 'Frozen Yogurt',
-            calories: 159,
-            fat: 6.0
-          },
-          {
-            name: 'Ice cream sandwich',
-            calories: 237,
-            fat: 9.0
-          },
-          {
-            name: 'Eclair',
-            calories: 262,
-            fat: 16.0
-          }
-      ]
+          num: '2016-05-02',
+          name: '张小虎'
+        }, 
+        {
+          num: '2016-05-04',
+          name: '王小虎'
+        }, 
+        {
+          num: '2016-05-01',
+          name: '赵小虎'
+        }]
      
     };
   },
   computed: {},
-//   created() {
-//     this.search();
-//   },
+  created() {
+    
+  },
   methods: {
-    handleSortChange ({name, order}) {
-      this.list = this.list.sort((a, b) => order === 'asc' ? a[name] - b[name] : b[name] - a[name]);
-    }
+   handleClick(row) {
+        console.log(row);
+      }
   },
 };
 </script>
