@@ -5,7 +5,7 @@
     <mu-container>
       <mu-text-field v-model="value1" label="初始密码" label-float  style="width: 96%"></mu-text-field><br/>
       <mu-text-field v-model="value2" label="新密码"  label-float  style="width: 96%"></mu-text-field><br/>
-      <mu-text-field v-model="value2" label="确认密码"  label-float  style="width: 96%"></mu-text-field><br/>
+      <mu-text-field v-model="value3" label="确认密码"  label-float  style="width: 96%"></mu-text-field><br/>
     </mu-container>
     <mu-container class="button-wrapper" style="margin-top:30px;">
         <mu-flex justify-content="center" align-items="center">
@@ -19,7 +19,9 @@
 export default {
   data() {
     return {
-      id: "gf",
+      value1: '',
+      value2: '',
+      value3: ''
     };
   },
   created() {
