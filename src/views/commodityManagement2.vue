@@ -1,5 +1,5 @@
 <template lang='html'>
-<!-- 商品管理-1 -->
+<!-- 商品管理-2 -->
     <div id="index">
         <mu-card-title title="商品管理"></mu-card-title>
             <mu-carousel hide-controls style="height:44vw;width:90%;margin:20px auto;">

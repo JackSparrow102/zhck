@@ -1,13 +1,13 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import loginOptions from './views/loginOptions.vue';
-import landing from './views/landing.vue';
-import storeManagement from './views/storeManagement.vue';
-import commodityManagement1 from './views/commodityManagement1.vue';
-import commodityManagement2 from './views/commodityManagement2.vue';
-import viewLog from './views/viewLog.vue';
-import recoveryLog from './views/recoveryLog.vue';
-import changePassword from './views/changePassword.vue';
+import loginOptions from './views/loginOptions.vue';//登陆选项
+import landing from './views/landing.vue';//登陆
+import storeManagement from './views/storeManagement.vue';//商品管理-店铺
+import commodityManagement1 from './views/commodityManagement1.vue';//商品管理-1
+import commodityManagement2 from './views/commodityManagement2.vue';//商品管理-2
+import viewLog from './views/viewLog.vue';//查看日志
+import recoveryLog from './views/recoveryLog.vue';//恢复日志
+import changePassword from './views/changePassword.vue';//修改密码
 
 Vue.use(Router);
 

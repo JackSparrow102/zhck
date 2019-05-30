@@ -1,5 +1,5 @@
 <template lang='html'>
-<!-- 商品管理-1 -->
+<!-- 查看日志 -->
     <div id="index">
         <mu-card-title title="日志展示"></mu-card-title>
         <mu-container>

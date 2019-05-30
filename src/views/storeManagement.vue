@@ -1,4 +1,5 @@
 <template lang='html'>
+<!-- 商品管理 -->
     <div id="index">
       <mu-card-title title="商品管理"></mu-card-title>
         <el-table :data="tableData" border style="width: 96%">

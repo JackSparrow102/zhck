@@ -1,5 +1,5 @@
 <template lang='html'>
-<!-- 商品管理-1 -->
+<!-- 日志恢复 -->
     <div id="index">
         <mu-card-title title="已删除日志页"></mu-card-title>
         <mu-container>
